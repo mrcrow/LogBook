@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E838BCA81674DD620056E170 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E838BCA71674DD620056E170 /* UIKit.framework */; };
+		E838BCAA1674DD620056E170 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E838BCA91674DD620056E170 /* Foundation.framework */; };
+		E838BCAC1674DD620056E170 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E838BCAB1674DD620056E170 /* CoreGraphics.framework */; };
+		E838BCAE1674DD620056E170 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E838BCAD1674DD620056E170 /* CoreData.framework */; };
+		E838BCB41674DD620056E170 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E838BCB21674DD620056E170 /* InfoPlist.strings */; };
+		E838BCB61674DD620056E170 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E838BCB51674DD620056E170 /* main.m */; };
+		E838BCBA1674DD620056E170 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E838BCB91674DD620056E170 /* AppDelegate.m */; };
+		E838BCBC1674DD620056E170 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E838BCBB1674DD620056E170 /* Default.png */; };
+		E838BCBE1674DD620056E170 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E838BCBD1674DD620056E170 /* Default@2x.png */; };
+		E838BCC01674DD620056E170 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E838BCBF1674DD620056E170 /* Default-568h@2x.png */; };
+		E838BCC31674DD620056E170 /* LogBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E838BCC11674DD620056E170 /* LogBook.xcdatamodeld */; };
+		E838BCC61674DD620056E170 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E838BCC51674DD620056E170 /* MasterViewController.m */; };
+		E838BCC91674DD620056E170 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E838BCC81674DD620056E170 /* DetailViewController.m */; };
+		E838BCCC1674DD620056E170 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E838BCCA1674DD620056E170 /* MasterViewController.xib */; };
+		E838BCCF1674DD620056E170 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E838BCCD1674DD620056E170 /* DetailViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E838BCA31674DD620056E170 /* LogBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E838BCA71674DD620056E170 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E838BCA91674DD620056E170 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E838BCAB1674DD620056E170 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E838BCAD1674DD620056E170 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E838BCB11674DD620056E170 /* LogBook-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LogBook-Info.plist"; sourceTree = "<group>"; };
+		E838BCB31674DD620056E170 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E838BCB51674DD620056E170 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E838BCB71674DD620056E170 /* LogBook-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogBook-Prefix.pch"; sourceTree = "<group>"; };
+		E838BCB81674DD620056E170 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E838BCB91674DD620056E170 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E838BCBB1674DD620056E170 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E838BCBD1674DD620056E170 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		E838BCBF1674DD620056E170 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E838BCC21674DD620056E170 /* LogBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LogBook.xcdatamodel; sourceTree = "<group>"; };
+		E838BCC41674DD620056E170 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		E838BCC51674DD620056E170 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		E838BCC71674DD620056E170 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		E838BCC81674DD620056E170 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		E838BCCB1674DD620056E170 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
+		E838BCCE1674DD620056E170 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E838BCA01674DD620056E170 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E838BCA81674DD620056E170 /* UIKit.framework in Frameworks */,
+				E838BCAA1674DD620056E170 /* Foundation.framework in Frameworks */,
+				E838BCAC1674DD620056E170 /* CoreGraphics.framework in Frameworks */,
+				E838BCAE1674DD620056E170 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E838BC981674DD620056E170 = {
+			isa = PBXGroup;
+			children = (
+				E838BCAF1674DD620056E170 /* LogBook */,
+				E838BCA61674DD620056E170 /* Frameworks */,
+				E838BCA41674DD620056E170 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E838BCA41674DD620056E170 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E838BCA31674DD620056E170 /* LogBook.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E838BCA61674DD620056E170 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E838BCA71674DD620056E170 /* UIKit.framework */,
+				E838BCA91674DD620056E170 /* Foundation.framework */,
+				E838BCAB1674DD620056E170 /* CoreGraphics.framework */,
+				E838BCAD1674DD620056E170 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E838BCAF1674DD620056E170 /* LogBook */ = {
+			isa = PBXGroup;
+			children = (
+				E838BCB81674DD620056E170 /* AppDelegate.h */,
+				E838BCB91674DD620056E170 /* AppDelegate.m */,
+				E838BCC41674DD620056E170 /* MasterViewController.h */,
+				E838BCC51674DD620056E170 /* MasterViewController.m */,
+				E838BCC71674DD620056E170 /* DetailViewController.h */,
+				E838BCC81674DD620056E170 /* DetailViewController.m */,
+				E838BCCA1674DD620056E170 /* MasterViewController.xib */,
+				E838BCCD1674DD620056E170 /* DetailViewController.xib */,
+				E838BCC11674DD620056E170 /* LogBook.xcdatamodeld */,
+				E838BCB01674DD620056E170 /* Supporting Files */,
+			);
+			path = LogBook;
+			sourceTree = "<group>";
+		};
+		E838BCB01674DD620056E170 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E838BCB11674DD620056E170 /* LogBook-Info.plist */,
+				E838BCB21674DD620056E170 /* InfoPlist.strings */,
+				E838BCB51674DD620056E170 /* main.m */,
+				E838BCB71674DD620056E170 /* LogBook-Prefix.pch */,
+				E838BCBB1674DD620056E170 /* Default.png */,
+				E838BCBD1674DD620056E170 /* Default@2x.png */,
+				E838BCBF1674DD620056E170 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E838BCA21674DD620056E170 /* LogBook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E838BCD21674DD620056E170 /* Build configuration list for PBXNativeTarget "LogBook" */;
+			buildPhases = (
+				E838BC9F1674DD620056E170 /* Sources */,
+				E838BCA01674DD620056E170 /* Frameworks */,
+				E838BCA11674DD620056E170 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LogBook;
+			productName = LogBook;
+			productReference = E838BCA31674DD620056E170 /* LogBook.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E838BC9A1674DD620056E170 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Wu Wenzhi";
+			};
+			buildConfigurationList = E838BC9D1674DD620056E170 /* Build configuration list for PBXProject "LogBook" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E838BC981674DD620056E170;
+			productRefGroup = E838BCA41674DD620056E170 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E838BCA21674DD620056E170 /* LogBook */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E838BCA11674DD620056E170 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E838BCB41674DD620056E170 /* InfoPlist.strings in Resources */,
+				E838BCBC1674DD620056E170 /* Default.png in Resources */,
+				E838BCBE1674DD620056E170 /* Default@2x.png in Resources */,
+				E838BCC01674DD620056E170 /* Default-568h@2x.png in Resources */,
+				E838BCCC1674DD620056E170 /* MasterViewController.xib in Resources */,
+				E838BCCF1674DD620056E170 /* DetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E838BC9F1674DD620056E170 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E838BCB61674DD620056E170 /* main.m in Sources */,
+				E838BCBA1674DD620056E170 /* AppDelegate.m in Sources */,
+				E838BCC31674DD620056E170 /* LogBook.xcdatamodeld in Sources */,
+				E838BCC61674DD620056E170 /* MasterViewController.m in Sources */,
+				E838BCC91674DD620056E170 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E838BCB21674DD620056E170 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E838BCB31674DD620056E170 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E838BCCA1674DD620056E170 /* MasterViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E838BCCB1674DD620056E170 /* en */,
+			);
+			name = MasterViewController.xib;
+			sourceTree = "<group>";
+		};
+		E838BCCD1674DD620056E170 /* DetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E838BCCE1674DD620056E170 /* en */,
+			);
+			name = DetailViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E838BCD01674DD620056E170 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		E838BCD11674DD620056E170 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E838BCD31674DD620056E170 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LogBook/LogBook-Prefix.pch";
+				INFOPLIST_FILE = "LogBook/LogBook-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E838BCD41674DD620056E170 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LogBook/LogBook-Prefix.pch";
+				INFOPLIST_FILE = "LogBook/LogBook-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E838BC9D1674DD620056E170 /* Build configuration list for PBXProject "LogBook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E838BCD01674DD620056E170 /* Debug */,
+				E838BCD11674DD620056E170 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E838BCD21674DD620056E170 /* Build configuration list for PBXNativeTarget "LogBook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E838BCD31674DD620056E170 /* Debug */,
+				E838BCD41674DD620056E170 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E838BCC11674DD620056E170 /* LogBook.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E838BCC21674DD620056E170 /* LogBook.xcdatamodel */,
+			);
+			currentVersion = E838BCC21674DD620056E170 /* LogBook.xcdatamodel */;
+			path = LogBook.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E838BC9A1674DD620056E170 /* Project object */;
+}
