@@ -18,10 +18,25 @@
 		E838BCBE1674DD620056E170 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E838BCBD1674DD620056E170 /* Default@2x.png */; };
 		E838BCC01674DD620056E170 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E838BCBF1674DD620056E170 /* Default-568h@2x.png */; };
 		E838BCC31674DD620056E170 /* LogBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E838BCC11674DD620056E170 /* LogBook.xcdatamodeld */; };
-		E838BCC61674DD620056E170 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E838BCC51674DD620056E170 /* MasterViewController.m */; };
-		E838BCC91674DD620056E170 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E838BCC81674DD620056E170 /* DetailViewController.m */; };
-		E838BCCC1674DD620056E170 /* MasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E838BCCA1674DD620056E170 /* MasterViewController.xib */; };
-		E838BCCF1674DD620056E170 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E838BCCD1674DD620056E170 /* DetailViewController.xib */; };
+		E838BCC61674DD620056E170 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E838BCC51674DD620056E170 /* MenuViewController.m */; };
+		E838BCC91674DD620056E170 /* DisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E838BCC81674DD620056E170 /* DisplayViewController.m */; };
+		E838BCCC1674DD620056E170 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E838BCCA1674DD620056E170 /* MenuViewController.xib */; };
+		E838BCCF1674DD620056E170 /* DisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E838BCCD1674DD620056E170 /* DisplayViewController.xib */; };
+		E838BD051674ED560056E170 /* FolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E838BD041674ED560056E170 /* FolderViewController.m */; };
+		E838BD0D167579F80056E170 /* FolderManageController.m in Sources */ = {isa = PBXBuildFile; fileRef = E838BD0C167579F80056E170 /* FolderManageController.m */; };
+		E838BD351675E1130056E170 /* FolderManageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E838BD341675E1120056E170 /* FolderManageController.xib */; };
+		E838BD371675E1650056E170 /* FolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E838BD361675E1640056E170 /* FolderViewController.xib */; };
+		E83A8E55167860D200C9F9DB /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E83A8E53167860D200C9F9DB /* CollectionViewController.m */; };
+		E83A8E56167860D200C9F9DB /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E83A8E54167860D200C9F9DB /* CollectionViewController.xib */; };
+		E8AAB216167D9115008C2D18 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAB214167D9115008C2D18 /* PageViewController.m */; };
+		E8AAB217167D9115008C2D18 /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8AAB215167D9115008C2D18 /* PageViewController.xib */; };
+		E8AAB21B167D912B008C2D18 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAB219167D912B008C2D18 /* ContentViewController.m */; };
+		E8AAB21C167D912B008C2D18 /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8AAB21A167D912B008C2D18 /* ContentViewController.xib */; };
+		E8AAB222167EACE8008C2D18 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AAB221167EACE8008C2D18 /* MessageUI.framework */; };
+		E8D81C97167ECE6E00C53E4F /* UIColor+ExtraColors.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D81C96167ECE6E00C53E4F /* UIColor+ExtraColors.m */; };
+		E8F01F55167881B100E43AE7 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F01F54167881B100E43AE7 /* Folder.m */; };
+		E8F01F59167881B200E43AE7 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F01F58167881B200E43AE7 /* File.m */; };
+		E8F01F5C167881B200E43AE7 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F01F5B167881B200E43AE7 /* Collection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,12 +55,36 @@
 		E838BCBD1674DD620056E170 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E838BCBF1674DD620056E170 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E838BCC21674DD620056E170 /* LogBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LogBook.xcdatamodel; sourceTree = "<group>"; };
-		E838BCC41674DD620056E170 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		E838BCC51674DD620056E170 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		E838BCC71674DD620056E170 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		E838BCC81674DD620056E170 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		E838BCCB1674DD620056E170 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
-		E838BCCE1674DD620056E170 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
+		E838BCC41674DD620056E170 /* MenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		E838BCC51674DD620056E170 /* MenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		E838BCC71674DD620056E170 /* DisplayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DisplayViewController.h; sourceTree = "<group>"; };
+		E838BCC81674DD620056E170 /* DisplayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DisplayViewController.m; sourceTree = "<group>"; };
+		E838BCCB1674DD620056E170 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MenuViewController.xib; sourceTree = "<group>"; };
+		E838BCCE1674DD620056E170 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DisplayViewController.xib; sourceTree = "<group>"; };
+		E838BD031674ED560056E170 /* FolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderViewController.h; sourceTree = "<group>"; };
+		E838BD041674ED560056E170 /* FolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderViewController.m; sourceTree = "<group>"; };
+		E838BD0B167579F70056E170 /* FolderManageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FolderManageController.h; sourceTree = "<group>"; };
+		E838BD0C167579F80056E170 /* FolderManageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FolderManageController.m; sourceTree = "<group>"; };
+		E838BD341675E1120056E170 /* FolderManageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderManageController.xib; sourceTree = "<group>"; };
+		E838BD361675E1640056E170 /* FolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderViewController.xib; sourceTree = "<group>"; };
+		E83A8E52167860D200C9F9DB /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		E83A8E53167860D200C9F9DB /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		E83A8E54167860D200C9F9DB /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
+		E8AAB213167D9114008C2D18 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		E8AAB214167D9115008C2D18 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
+		E8AAB215167D9115008C2D18 /* PageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
+		E8AAB218167D912B008C2D18 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		E8AAB219167D912B008C2D18 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		E8AAB21A167D912B008C2D18 /* ContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentViewController.xib; sourceTree = "<group>"; };
+		E8AAB221167EACE8008C2D18 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		E8D81C95167ECE6E00C53E4F /* UIColor+ExtraColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ExtraColors.h"; sourceTree = "<group>"; };
+		E8D81C96167ECE6E00C53E4F /* UIColor+ExtraColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ExtraColors.m"; sourceTree = "<group>"; };
+		E8F01F53167881B100E43AE7 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
+		E8F01F54167881B100E43AE7 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
+		E8F01F57167881B200E43AE7 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
+		E8F01F58167881B200E43AE7 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
+		E8F01F5A167881B200E43AE7 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
+		E8F01F5B167881B200E43AE7 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8AAB222167EACE8008C2D18 /* MessageUI.framework in Frameworks */,
 				E838BCA81674DD620056E170 /* UIKit.framework in Frameworks */,
 				E838BCAA1674DD620056E170 /* Foundation.framework in Frameworks */,
 				E838BCAC1674DD620056E170 /* CoreGraphics.framework in Frameworks */,
@@ -66,6 +106,8 @@
 		E838BC981674DD620056E170 = {
 			isa = PBXGroup;
 			children = (
+				E8D81C95167ECE6E00C53E4F /* UIColor+ExtraColors.h */,
+				E8D81C96167ECE6E00C53E4F /* UIColor+ExtraColors.m */,
 				E838BCAF1674DD620056E170 /* LogBook */,
 				E838BCA61674DD620056E170 /* Frameworks */,
 				E838BCA41674DD620056E170 /* Products */,
@@ -83,6 +125,7 @@
 		E838BCA61674DD620056E170 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E8AAB221167EACE8008C2D18 /* MessageUI.framework */,
 				E838BCA71674DD620056E170 /* UIKit.framework */,
 				E838BCA91674DD620056E170 /* Foundation.framework */,
 				E838BCAB1674DD620056E170 /* CoreGraphics.framework */,
@@ -96,13 +139,10 @@
 			children = (
 				E838BCB81674DD620056E170 /* AppDelegate.h */,
 				E838BCB91674DD620056E170 /* AppDelegate.m */,
-				E838BCC41674DD620056E170 /* MasterViewController.h */,
-				E838BCC51674DD620056E170 /* MasterViewController.m */,
-				E838BCC71674DD620056E170 /* DetailViewController.h */,
-				E838BCC81674DD620056E170 /* DetailViewController.m */,
-				E838BCCA1674DD620056E170 /* MasterViewController.xib */,
-				E838BCCD1674DD620056E170 /* DetailViewController.xib */,
-				E838BCC11674DD620056E170 /* LogBook.xcdatamodeld */,
+				E845046E1679DB8400C6B223 /* Menu */,
+				E83A8E171678198700C9F9DB /* Folder Manager */,
+				E83A8E181678199700C9F9DB /* Form  */,
+				E838BD061674EDA70056E170 /* Data Model */,
 				E838BCB01674DD620056E170 /* Supporting Files */,
 			);
 			path = LogBook;
@@ -120,6 +160,62 @@
 				E838BCBF1674DD620056E170 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E838BD061674EDA70056E170 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				E8F01F53167881B100E43AE7 /* Folder.h */,
+				E8F01F54167881B100E43AE7 /* Folder.m */,
+				E8F01F57167881B200E43AE7 /* File.h */,
+				E8F01F58167881B200E43AE7 /* File.m */,
+				E8F01F5A167881B200E43AE7 /* Collection.h */,
+				E8F01F5B167881B200E43AE7 /* Collection.m */,
+				E838BCC11674DD620056E170 /* LogBook.xcdatamodeld */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		E83A8E171678198700C9F9DB /* Folder Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E838BD0B167579F70056E170 /* FolderManageController.h */,
+				E838BD0C167579F80056E170 /* FolderManageController.m */,
+				E838BD031674ED560056E170 /* FolderViewController.h */,
+				E838BD041674ED560056E170 /* FolderViewController.m */,
+				E838BD341675E1120056E170 /* FolderManageController.xib */,
+				E838BD361675E1640056E170 /* FolderViewController.xib */,
+			);
+			name = "Folder Manager";
+			sourceTree = "<group>";
+		};
+		E83A8E181678199700C9F9DB /* Form  */ = {
+			isa = PBXGroup;
+			children = (
+				E838BCC71674DD620056E170 /* DisplayViewController.h */,
+				E838BCC81674DD620056E170 /* DisplayViewController.m */,
+				E83A8E52167860D200C9F9DB /* CollectionViewController.h */,
+				E83A8E53167860D200C9F9DB /* CollectionViewController.m */,
+				E8AAB218167D912B008C2D18 /* ContentViewController.h */,
+				E8AAB219167D912B008C2D18 /* ContentViewController.m */,
+				E8AAB213167D9114008C2D18 /* PageViewController.h */,
+				E8AAB214167D9115008C2D18 /* PageViewController.m */,
+				E838BCCD1674DD620056E170 /* DisplayViewController.xib */,
+				E83A8E54167860D200C9F9DB /* CollectionViewController.xib */,
+				E8AAB215167D9115008C2D18 /* PageViewController.xib */,
+				E8AAB21A167D912B008C2D18 /* ContentViewController.xib */,
+			);
+			name = "Form ";
+			sourceTree = "<group>";
+		};
+		E845046E1679DB8400C6B223 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				E838BCC41674DD620056E170 /* MenuViewController.h */,
+				E838BCC51674DD620056E170 /* MenuViewController.m */,
+				E838BCCA1674DD620056E170 /* MenuViewController.xib */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,8 +273,13 @@
 				E838BCBC1674DD620056E170 /* Default.png in Resources */,
 				E838BCBE1674DD620056E170 /* Default@2x.png in Resources */,
 				E838BCC01674DD620056E170 /* Default-568h@2x.png in Resources */,
-				E838BCCC1674DD620056E170 /* MasterViewController.xib in Resources */,
-				E838BCCF1674DD620056E170 /* DetailViewController.xib in Resources */,
+				E838BCCC1674DD620056E170 /* MenuViewController.xib in Resources */,
+				E838BCCF1674DD620056E170 /* DisplayViewController.xib in Resources */,
+				E838BD351675E1130056E170 /* FolderManageController.xib in Resources */,
+				E838BD371675E1650056E170 /* FolderViewController.xib in Resources */,
+				E83A8E56167860D200C9F9DB /* CollectionViewController.xib in Resources */,
+				E8AAB217167D9115008C2D18 /* PageViewController.xib in Resources */,
+				E8AAB21C167D912B008C2D18 /* ContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,8 +293,17 @@
 				E838BCB61674DD620056E170 /* main.m in Sources */,
 				E838BCBA1674DD620056E170 /* AppDelegate.m in Sources */,
 				E838BCC31674DD620056E170 /* LogBook.xcdatamodeld in Sources */,
-				E838BCC61674DD620056E170 /* MasterViewController.m in Sources */,
-				E838BCC91674DD620056E170 /* DetailViewController.m in Sources */,
+				E838BCC61674DD620056E170 /* MenuViewController.m in Sources */,
+				E838BCC91674DD620056E170 /* DisplayViewController.m in Sources */,
+				E838BD051674ED560056E170 /* FolderViewController.m in Sources */,
+				E838BD0D167579F80056E170 /* FolderManageController.m in Sources */,
+				E83A8E55167860D200C9F9DB /* CollectionViewController.m in Sources */,
+				E8F01F55167881B100E43AE7 /* Folder.m in Sources */,
+				E8F01F59167881B200E43AE7 /* File.m in Sources */,
+				E8F01F5C167881B200E43AE7 /* Collection.m in Sources */,
+				E8AAB216167D9115008C2D18 /* PageViewController.m in Sources */,
+				E8AAB21B167D912B008C2D18 /* ContentViewController.m in Sources */,
+				E8D81C97167ECE6E00C53E4F /* UIColor+ExtraColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,20 +318,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		E838BCCA1674DD620056E170 /* MasterViewController.xib */ = {
+		E838BCCA1674DD620056E170 /* MenuViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E838BCCB1674DD620056E170 /* en */,
 			);
-			name = MasterViewController.xib;
+			name = MenuViewController.xib;
 			sourceTree = "<group>";
 		};
-		E838BCCD1674DD620056E170 /* DetailViewController.xib */ = {
+		E838BCCD1674DD620056E170 /* DisplayViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E838BCCE1674DD620056E170 /* en */,
 			);
-			name = DetailViewController.xib;
+			name = DisplayViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -249,7 +359,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -271,7 +381,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -320,6 +430,7 @@
 				E838BCD41674DD620056E170 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

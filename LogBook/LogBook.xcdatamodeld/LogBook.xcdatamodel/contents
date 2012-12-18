@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Event">
-        <attribute name="timeStamp" optional="YES" attributeType="Date"/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Collection" representedClassName="Collection" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="fromFile" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="File" inverseName="collections" inverseEntity="File" syncable="YES"/>
+    </entity>
+    <entity name="File" representedClassName="File" syncable="YES">
+        <attribute name="fatherPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="html" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="isExistInServer" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="isLastVersion" optional="YES" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="modifiedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="collections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Collection" inverseName="fromFile" inverseEntity="Collection" syncable="YES"/>
+        <relationship name="fromFolder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="subFiles" inverseEntity="Folder" syncable="YES"/>
+    </entity>
+    <entity name="Folder" representedClassName="Folder">
+        <attribute name="fatherPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isExistInServer" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String">
+            <userInfo/>
+        </attribute>
+        <attribute name="path" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="fromFolder" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="subFolders" inverseEntity="Folder" syncable="YES"/>
+        <relationship name="subFiles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="File" inverseName="fromFolder" inverseEntity="File" syncable="YES"/>
+        <relationship name="subFolders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Folder" inverseName="fromFolder" inverseEntity="Folder" syncable="YES"/>
+        <userInfo/>
     </entity>
     <elements>
-        <element name="Event" positionX="261" positionY="189" width="128" height="60"/>
+        <element name="Collection" positionX="-2538" positionY="-1089" width="128" height="105"/>
+        <element name="File" positionX="-2727" positionY="-1071" width="128" height="180"/>
+        <element name="Folder" positionX="-2934" positionY="-1089" width="128" height="150"/>
     </elements>
 </model>

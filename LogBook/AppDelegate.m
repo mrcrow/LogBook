@@ -8,9 +8,8 @@
 
 #import "AppDelegate.h"
 
-#import "MasterViewController.h"
-
-#import "DetailViewController.h"
+#import "MenuViewController.h"
+#import "DisplayViewController.h"
 
 @implementation AppDelegate
 
@@ -23,18 +22,19 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
-    MasterViewController *masterViewController = [[MasterViewController alloc] initWithNibName:@"MasterViewController" bundle:nil];
+    MenuViewController *masterViewController = [[MenuViewController alloc] initWithNibName:@"MenuViewController" bundle:nil];
     UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
 
-    DetailViewController *detailViewController = [[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    DisplayViewController *detailViewController = [[DisplayViewController alloc] initWithNibName:@"DisplayViewController" bundle:nil];
     UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
 
-    masterViewController.detailViewController = detailViewController;
+    masterViewController.DisplayViewController = detailViewController;
 
     self.splitViewController = [[UISplitViewController alloc] init];
     self.splitViewController.delegate = detailViewController;
     self.splitViewController.viewControllers = @[masterNavigationController, detailNavigationController];
     masterViewController.managedObjectContext = self.managedObjectContext;
+    detailViewController.managedObjectContext = self.managedObjectContext;
     self.window.rootViewController = self.splitViewController;
     [self.window makeKeyAndVisible];
     return YES;
