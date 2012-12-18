@@ -71,7 +71,7 @@
     else
     {
         NSString *jsonString = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
-        [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"someFunction(%@)", jsonString]];
+        [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setFormJSON(%@)", jsonString]];
     }
 }
 

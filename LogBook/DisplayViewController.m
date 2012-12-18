@@ -88,7 +88,7 @@
 #warning here
 - (void)getFormData
 {    
-    NSString *value = [_webView stringByEvaluatingJavaScriptFromString:@"getdata()"];
+    NSString *value = [_webView stringByEvaluatingJavaScriptFromString:@"getFormJSON()"];
     
     NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
 
