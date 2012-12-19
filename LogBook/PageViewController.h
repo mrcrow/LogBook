@@ -11,7 +11,9 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 
-@interface PageViewController : UIViewController <UIPageViewControllerDataSource, MFMailComposeViewControllerDelegate, UIAlertViewDelegate>
+@interface PageViewController : UIViewController <UIPageViewControllerDataSource, MFMailComposeViewControllerDelegate>
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 - (void)manageCollections:(NSArray *)collections withHTMLData:(NSData *)data andPath:(NSString *)path;
 

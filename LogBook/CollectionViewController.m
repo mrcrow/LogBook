@@ -15,11 +15,14 @@
 
 @property (strong, nonatomic) File *showFile;
 @property (strong, nonatomic) NSMutableArray *collections;
+@property (strong, nonatomic) NSMutableArray *sendCollections;
 @end
 
 @implementation CollectionViewController
 @synthesize delegate;
-@synthesize sendButton = _sendButton, previewButton = _previewButton, selectOrClearButton = _selectOrClearButton, showFile = _showFile, collections = _collections;
+@synthesize sendButton = _sendButton, previewButton = _previewButton, selectOrClearButton = _selectOrClearButton, showFile = _showFile, collections = _collections, sendCollections = _sendCollections;
+
+@synthesize managedObjectContext = __managedObjectContext;
 
 static NSString *previewTitle = @"Preview (%d)";
 static NSString *previewTitleAll = @"Preview All";
@@ -147,8 +150,72 @@ static NSString *sendTitleAll = @"Send All";
 
 - (void)sendEmail:(id)sender
 {
+    Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
     
+    if (mailClass != nil)
+    {
+        // We must always check whether the current device is configured for sending emails
+        if ([mailClass canSendMail])
+        {
+            [self displayComposerSheet];
+        }
+    }
 }
+
+-(void)displayComposerSheet
+{
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+	picker.mailComposeDelegate = self;
+    
+    NSArray *selectArray = [self.tableView indexPathsForSelectedRows];
+    NSString *collectNames = [NSString string];
+    
+    [self emptySendCollectionDraft];
+    
+    for (NSIndexPath *indexPath in selectArray)
+    {
+        Collection *collect = [_collections objectAtIndex:indexPath.row];
+        [_sendCollections addObject:collect];
+        collectNames = [collectNames stringByAppendingString:[NSString stringWithFormat:@"%@, ", collect.name]];
+        [picker addAttachmentData:collect.attachment mimeType:@"text/csv" fileName:collect.name];
+    }
+    
+	[picker setSubject:[NSString stringWithFormat:@"Some colected data of %@", _showFile.name]];
+	
+	// Set up recipients
+	[picker setToRecipients:[NSArray arrayWithObject:TestEmail]];
+	
+	// Fill out the email body text
+	NSString *emailBody = [NSString stringWithFormat: @"Email included the data of %@please check it.", collectNames];
+	[picker setMessageBody:emailBody isHTML:YES];
+	
+	[self presentModalViewController:picker animated:YES];
+    [delegate collectionControllerDismissPopoverView];
+}
+
+- (void)emptySendCollectionDraft
+{
+    if (!self.sendCollections)
+    {
+        _sendCollections = [NSMutableArray array];
+    }
+    else
+    {
+        [_sendCollections removeAllObjects];
+    }
+}
+
+/*
+-(void)launchMailAppOnDevice
+{
+	NSString *recipients = @"mailto:first@example.com?cc=second@example.com&subject=Hello from California!";
+	NSString *body = @"&body=It is raining in sunny California!";
+	
+	NSString *email = [NSString stringWithFormat:@"%@%@", recipients, body];
+	email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+	
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
+}*/
 
 - (void)previewCollections:(id)sender
 {
@@ -162,6 +229,7 @@ static NSString *sendTitleAll = @"Send All";
     }
     
     PageViewController *pageController = [[PageViewController alloc] initWithNibName:@"PageViewController" bundle:nil];
+    pageController.managedObjectContext = self.managedObjectContext;
     [pageController manageCollections:selectCollections withHTMLData:_showFile.html andPath:_showFile.path];
     UINavigationController *pageNavController = [[UINavigationController alloc] initWithRootViewController:pageController];
     pageNavController.modalPresentationStyle = UIModalPresentationPageSheet;
@@ -281,11 +349,11 @@ static NSString *sendTitleAll = @"Send All";
  
     if ([collect.sent boolValue])
     {
-        cell.textLabel.textColor = [UIColor sentTextColor];
+        cell.textLabel.textColor = [UIColor lightGrayColor];
     }
     else
     {
-        cell.textLabel.textColor = [UIColor unsentTextColor];
+        cell.textLabel.textColor = [UIColor blackColor];
     }
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -306,9 +374,9 @@ static NSString *sendTitleAll = @"Send All";
         [delegate collectionControllerDismissPopoverView];
         
         ContentViewController *previewController = [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
+        previewController.managedObjectContext = self.managedObjectContext;
         
         Collection *collection = [_collections objectAtIndex:indexPath.row];
-        
         [previewController manageCollection:collection withHTMLData:_showFile.html andPath:_showFile.path];
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:previewController];
@@ -334,6 +402,37 @@ static NSString *sendTitleAll = @"Send All";
     [self setSelectOrClearButton:nil];
     [self setShowFile:nil];
     [super viewDidUnload];
+}
+
+#pragma mark - MFMailComposeDelegate Method
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    if (result == MFMailComposeResultSent)
+    {
+        [self checkSentCollections];
+    }
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (void)checkSentCollections
+{
+    NSManagedObjectContext *context = self.managedObjectContext;
+    
+    for (Collection *collect in _sendCollections)
+    {
+        collect.sent = [NSNumber numberWithBool:YES];
+    }
+    
+    NSError *error = nil;
+    if (![context save:&error])
+    {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
 }
 
 @end

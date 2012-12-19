@@ -14,7 +14,9 @@
 @interface ContentViewController : UIViewController <UIWebViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (strong, nonatomic) Collection *collet;
+@property (strong, nonatomic) Collection *collect;
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 //load in PageViewController
 - (void)loadColletion:(Collection *)colletion withHTMLData:(NSData *)html andPath:(NSString *)path;

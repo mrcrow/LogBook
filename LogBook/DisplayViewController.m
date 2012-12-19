@@ -193,6 +193,7 @@
     {
         self.collectionController = [[CollectionViewController alloc] initWithNibName:@"CollectionViewController" bundle:nil];
         _collectionController.delegate = self;
+        _collectionController.managedObjectContext = self.managedObjectContext;
     }
     
     [_collectionController showFileCollections:_openFile];

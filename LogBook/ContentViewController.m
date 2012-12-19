@@ -11,12 +11,13 @@
 @interface ContentViewController ()
 @property (strong, nonatomic) NSData *html;
 @property (strong, nonatomic) NSString *path;
-@property (strong, nonatomic) NSString *message;
 @end
 
 @implementation ContentViewController
-@synthesize html = _html, path = _path, message = _message, collet = _collet;
+@synthesize html = _html, path = _path, collect = _collect;
 @synthesize webView = _webView;
+
+@synthesize managedObjectContext = __managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,7 +50,7 @@
 - (void)viewDidUnload {
     [self setWebView:nil];
     [self setHtml:nil];
-    [self setCollet:nil];
+    [self setCollect:nil];
     [super viewDidUnload];
 }
 
@@ -57,7 +58,7 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setFormJSON('%@')", _collet.json]];
+    [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setFormJSON('%@')", _collect.json]];
 }
 
 #pragma mark - Manage Content
@@ -70,7 +71,7 @@
 
 - (void)loadColletion:(Collection *)colletion withHTMLData:(NSData *)html andPath:(NSString *)path
 {
-    _collet = colletion;
+    _collect = colletion;
     _html = [NSData dataWithData:html];
     _path = path;
 }
@@ -105,15 +106,7 @@
 		{
             [self displayComposerSheet];
 		}
-		else
-		{
-			[self launchMailAppOnDevice];
-		}
-	}
-	else
-	{
-		[self launchMailAppOnDevice];
-	}
+    }
 }
 
 -(void)displayComposerSheet
@@ -121,7 +114,7 @@
 	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
 	picker.mailComposeDelegate = self;
 	
-	[picker setSubject:[NSString stringWithFormat:@"Collected Data of %@", _collet.name]];
+	[picker setSubject:[NSString stringWithFormat:@"Collected Data of %@", _collect.name]];
 	
 	// Set up recipients
 	NSArray *toRecipients = [NSArray arrayWithObject:@"first@example.com"];
@@ -131,15 +124,16 @@
 	[picker setCcRecipients:ccRecipients];
 	
 	// Attach an image to the email
-	[picker addAttachmentData:_collet.attachment mimeType:@"text/csv" fileName:_collet.name];
+	[picker addAttachmentData:_collect.attachment mimeType:@"text/csv" fileName:_collect.name];
 	
 	// Fill out the email body text
-	NSString *emailBody = [NSString stringWithFormat: @"%@'s collection data is included in the attachment", _collet.name];
+	NSString *emailBody = [NSString stringWithFormat: @"%@'s collection data is included in the attachment", _collect.name];
 	[picker setMessageBody:emailBody isHTML:NO];
 	
 	[self presentModalViewController:picker animated:YES];
 }
 
+/*
 -(void)launchMailAppOnDevice
 {
 	NSString *recipients = @"mailto:first@example.com?cc=second@example.com&subject=Hello from California!";
@@ -149,32 +143,35 @@
 	email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
-}
+}*/
 
 #pragma mark - Mail Delegate Method
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
-	// Notifies users about errors associated with the interface
-	switch (result)
-	{
-		case MFMailComposeResultCancelled:
-			_message = @"Mail is canceled";
-			break;
-		case MFMailComposeResultSaved:
-			_message = @"Mail is saved";
-			break;
-		case MFMailComposeResultSent:
-			_message = @"Mail has sent";
-			break;
-		case MFMailComposeResultFailed:
-			_message = @"Mail sending failed";
-			break;
-		default:
-			_message = @"Mail not send";
-			break;
-	}
+    if (result == MFMailComposeResultSent)
+    {
+        [self checkSentCollections];
+    }
+    
     [self dismissModalViewControllerAnimated:YES];
 }
+
+- (void)checkSentCollections
+{
+    NSManagedObjectContext *context = self.managedObjectContext;
+    
+    _collect.sent = [NSNumber numberWithBool:YES];
+    
+    NSError *error = nil;
+    if (![context save:&error])
+    {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+}
+
 
 @end

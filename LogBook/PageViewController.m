@@ -18,6 +18,8 @@
 @implementation PageViewController
 @synthesize pageContent = _pageContent, pageController = _pageController, html = _html, path = _path;
 
+@synthesize managedObjectContext = __managedObjectContext;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -96,7 +98,7 @@
 
 - (NSUInteger)indexOfViewController:(ContentViewController *)viewController
 {
-    return [self.pageContent indexOfObject:viewController.collet];
+    return [self.pageContent indexOfObject:viewController.collect];
 }
 
 - (UIViewController *)pageViewController:
@@ -159,15 +161,7 @@
 		{
             [self displayComposerSheet];
 		}
-		else
-		{
-			[self launchMailAppOnDevice];
-		}
-	}
-	else
-	{
-		[self launchMailAppOnDevice];
-	}
+    }
 }
 
 -(void)displayComposerSheet
@@ -194,6 +188,7 @@
 	[self presentModalViewController:picker animated:YES];
 }
 
+/*
 -(void)launchMailAppOnDevice
 {
 	NSString *recipients = @"mailto:first@example.com?cc=second@example.com&subject=Hello from California!";
@@ -203,53 +198,36 @@
 	email = [email stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 	
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:email]];
-}
+}*/
 
 #pragma mark - Mail Delegate Method
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
-{
-    NSString *message = [NSString string];
-	// Notifies users about errors associated with the interface
-	switch (result)
-	{
-		case MFMailComposeResultCancelled:
-			message = @"Mail is canceled";
-			break;
-		case MFMailComposeResultSaved:
-			message = @"Mail is saved";
-			break;
-		case MFMailComposeResultSent:
-			message = @"Mail has sent";
-			break;
-		case MFMailComposeResultFailed:
-			message = @"Failed to send the mail";
-			break;
-		default:
-			message = @"Mail not sent";
-			break;
-	}
-    
+{    
     if (result == MFMailComposeResultSent)
     {
         [self checkSentCollections];
     }
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mail" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)checkSentCollections
 {
+    NSManagedObjectContext *context = self.managedObjectContext;
     
+    for (Collection *collect in _pageContent)
+    {
+        collect.sent = [NSNumber numberWithBool:YES];
+    }
+    
+    NSError *error = nil;
+    if (![context save:&error])
+    {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
 }
-
-#pragma mark - Alert View Delegate Method
-
-- (void)alertViewCancel:(UIAlertView *)alertView
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
-
 
 @end
