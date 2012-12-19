@@ -185,23 +185,32 @@
     
     NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:NULL];
     
+    NSLog(@"%@", results);
+    
     NSArray *content = [results objectForKey:@"data"];
     
-    NSString *string = nil;
+    NSLog(@"%@", content);
+    
+    NSString *string = [NSString string];
     int i = 0;
     
     for (NSDictionary *item in content)
     {
+        NSString *conponent = nil;
         i ++;
         if (i < [content count])
         {
-            string = [string stringByAppendingString:[NSString stringWithFormat:@"%@%@", [item objectForKey:@"Value"], SEPERATOR]];
+            conponent = [NSString stringWithFormat:@"%@%@", [item objectForKey:@"value"], SEPERATOR];
         }
         else
         {
-            string = [string stringByAppendingString:[item objectForKey:@"Value"]];
+            conponent = [item objectForKey:@"value"];
         }
+        
+        string = [string stringByAppendingString:conponent];
     }
+    
+    NSLog(@"%@", string);
     
     //convert nsstring to nsdata
     return [string dataUsingEncoding:NSUTF8StringEncoding];

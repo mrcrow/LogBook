@@ -613,7 +613,7 @@
             
             if (!self.subFolderController)
             {
-                self.subFolderController = [[FolderViewController alloc] initWithStyle:UITableViewStyleGrouped];
+                self.subFolderController = [[FolderViewController alloc] initWithStyle:UITableViewStylePlain];
             }
             _subFolderController.managedObjectContext = self.managedObjectContext;
             [_subFolderController manageFolder:folder withJSON:data online:_isOnline];
