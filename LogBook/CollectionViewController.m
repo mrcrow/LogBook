@@ -190,6 +190,8 @@ static NSString *sendTitleAll = @"Send All";
 	[picker setMessageBody:emailBody isHTML:YES];
 	
 	[self presentModalViewController:picker animated:YES];
+    
+    [self setEditing:NO animated:YES];
     [delegate collectionControllerDismissPopoverView];
 }
 
@@ -233,6 +235,8 @@ static NSString *sendTitleAll = @"Send All";
     [pageController manageCollections:selectCollections withHTMLData:_showFile.html andPath:_showFile.path];
     UINavigationController *pageNavController = [[UINavigationController alloc] initWithRootViewController:pageController];
     pageNavController.modalPresentationStyle = UIModalPresentationPageSheet;
+    
+    [self setEditing:NO animated:YES];
     [self.navigationController presentModalViewController:pageNavController animated:YES];
 }
 
@@ -380,7 +384,7 @@ static NSString *sendTitleAll = @"Send All";
         [previewController manageCollection:collection withHTMLData:_showFile.html andPath:_showFile.path];
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:previewController];
-        [navController setToolbarHidden:NO];
+        
         navController.modalPresentationStyle = UIModalPresentationPageSheet;
         [self.navigationController presentModalViewController:navController animated:YES];
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];

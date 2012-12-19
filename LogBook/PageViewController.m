@@ -166,24 +166,32 @@
 
 -(void)displayComposerSheet
 {
-	MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
+    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
 	picker.mailComposeDelegate = self;
-	
-	//[picker setSubject:[NSString stringWithFormat:@"Collected Data of %@", _collet.name]];
+    
+    NSString *collectNames = [NSString string];
+    NSString *fileName = [NSString string];
+    NSInteger i = 0;
+    
+    for (Collection *collect in _pageContent)
+    {
+        i ++;
+        if (i == 1)
+        {
+            fileName = collect.fromFile.name;
+        }
+        collectNames = [collectNames stringByAppendingString:[NSString stringWithFormat:@"%@, ", collect.name]];
+        [picker addAttachmentData:collect.attachment mimeType:@"text/csv" fileName:collect.name];
+    }
+    
+	[picker setSubject:[NSString stringWithFormat:@"Some colected data of %@", fileName]];
 	
 	// Set up recipients
-	NSArray *toRecipients = [NSArray arrayWithObject:@"first@example.com"];
-	NSArray *ccRecipients = [NSArray arrayWithObjects:@"second@example.com", nil];
-    
-	[picker setToRecipients:toRecipients];
-	[picker setCcRecipients:ccRecipients];
-	
-	// Attach an image to the email
-	//[picker addAttachmentData:[self dataOfCollection] mimeType:@"text/csv" fileName:_collet.name];
+	[picker setToRecipients:[NSArray arrayWithObject:TestEmail]];
 	
 	// Fill out the email body text
-	//NSString *emailBody = [NSString stringWithFormat: @"%@'s collection data is included in the attachment", _collet.name];
-	//[picker setMessageBody:emailBody isHTML:NO];
+	NSString *emailBody = [NSString stringWithFormat: @"Email included the data of %@please check it.", collectNames];
+	[picker setMessageBody:emailBody isHTML:YES];
 	
 	[self presentModalViewController:picker animated:YES];
 }

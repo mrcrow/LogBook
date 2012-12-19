@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ContentViewController.h"
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import "ContentViewController.h"
+#import "File.h"
+#import "Collection.h"
 
 @interface PageViewController : UIViewController <UIPageViewControllerDataSource, MFMailComposeViewControllerDelegate>
 
