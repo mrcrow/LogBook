@@ -119,6 +119,9 @@
     [_files addObjectsFromArray:[_container.subFiles allObjects]];
     [_folders addObjectsFromArray:[_container.subFolders allObjects]];
     
+    [self sortFiles];
+    [self sortFolders];
+    
     [self.tableView reloadData];
     
     if ([self checkServerConnection])
@@ -127,6 +130,25 @@
         [self updateExistenceAndVersion];
         [self checkForUpdates];
     }
+}
+
+- (void)sortFolders
+{
+    NSSortDescriptor *sortOrder = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSArray *array = [_folders sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortOrder]];
+    [_folders removeAllObjects];
+    [_folders addObjectsFromArray:array];
+}
+
+- (void)sortFiles
+{
+    NSSortDescriptor *sortOrder = [NSSortDescriptor sortDescriptorWithKey:@"modifiedDate" ascending:NO];
+    NSArray *array = [_files sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortOrder]];
+    
+    //NSLog(@"%@", array);
+    
+    [_files removeAllObjects];
+    [_files addObjectsFromArray:array];
 }
 
 - (BOOL)checkServerConnection
@@ -278,6 +300,9 @@
     [self updateFiles];
     [self addUpdatedFilesOrFolders];
     
+    [self sortFolders];
+    [self sortFiles];
+    
     [self.tableView reloadData];
     
     [self.navigationItem setRightBarButtonItem:nil animated:YES];
@@ -300,7 +325,7 @@
                 {
                     NSString *urlString = [NSString stringWithFormat:@"%@/%@.html", _container.path, file.name];
                     NSURL *url = [NSURL URLWithString:urlString];
-                    NSLog(@"%@", urlString);
+                    //NSLog(@"%@", urlString);
                     
                     NSData *htmlData = [NSData dataWithContentsOfURL:url];
                     
@@ -434,7 +459,7 @@
     file.fatherPath = _container.path;
     file.name = [dict objectForKey:@"Name"];
     file.path = [NSString stringWithFormat:@"%@/%@.html", file.fatherPath, file.name];
-    NSLog(@"file path:%@", file.path);
+    //NSLog(@"file path:%@", file.path);
     
     file.isExistInServer = [NSNumber numberWithBool:YES];
     file.isLastVersion = [NSNumber numberWithBool:YES];
@@ -442,7 +467,7 @@
     //download file to direction
     NSURL *url = [NSURL URLWithString:file.path];
     NSData *htmlData = [NSData dataWithContentsOfURL:url];
-    NSLog(@"html data :%@", htmlData);
+    //NSLog(@"html data :%@", htmlData);
     
     file.html = htmlData;
     file.modifiedDate = serverModifiedDate;

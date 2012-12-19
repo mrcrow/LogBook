@@ -54,25 +54,10 @@
 }
 
 #pragma mark - Fill Contents
-#warning here
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:_collet.data];
-    NSDictionary *dictionary = [unarchiver decodeObjectForKey:@"CollectionData"];
-    [unarchiver finishDecoding];
-    
-    NSError *error;
-    NSData *json = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];
-    
-    if (!json)
-    {
-        NSLog(@"Got an error: %@", error);
-    }
-    else
-    {
-        NSString *jsonString = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
-        [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setFormJSON(%@)", jsonString]];
-    }
+    [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setFormJSON('%@')", _collet.data]];
 }
 
 #pragma mark - Manage Content
@@ -196,15 +181,15 @@
 
 - (NSData *)dataOfCollection
 {
-    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:_collet.data];
-    NSDictionary *dictionary = [unarchiver decodeObjectForKey:@"CollectionData"];
-    [unarchiver finishDecoding];
+    NSData *data = [_collet.data dataUsingEncoding:NSUTF8StringEncoding];
     
-    NSArray *content = [dictionary objectForKey:@"data"];
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:NULL];
+    
+    NSArray *content = [results objectForKey:@"data"];
     
     NSString *string = nil;
-    
     int i = 0;
+    
     for (NSDictionary *item in content)
     {
         i ++;

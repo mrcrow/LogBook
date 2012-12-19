@@ -81,6 +81,15 @@ static NSString *sendTitleAll = @"Send All";
 {
     [self emptyContainer];
     [_collections addObjectsFromArray:[_showFile.collections allObjects]];
+    [self sortCollections];
+}
+
+- (void)sortCollections
+{
+    NSSortDescriptor *sortOrder = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSArray *array = [_collections sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortOrder]];
+    [_collections removeAllObjects];
+    [_collections addObjectsFromArray:array];
 }
 
 #pragma mark - Button Functions

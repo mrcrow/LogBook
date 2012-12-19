@@ -166,6 +166,9 @@
     [_files addObjectsFromArray:fileObjects];
     [_folders addObjectsFromArray:folderObjects];
     
+    [self sortFiles];
+    [self sortFolders];
+    
     [self.tableView reloadData];
     
     [self checkServerConnection];
@@ -183,6 +186,22 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cannot connect to server" message:@"Please check your WiFi setting and the offline server is on" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
+}
+
+- (void)sortFolders
+{
+    NSSortDescriptor *sortOrder = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSArray *array = [_folders sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortOrder]];
+    [_folders removeAllObjects];
+    [_folders addObjectsFromArray:array];
+}
+
+- (void)sortFiles
+{
+    NSSortDescriptor *sortOrder = [NSSortDescriptor sortDescriptorWithKey:@"modifiedDate" ascending:NO];
+    NSArray *array = [_files sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortOrder]];
+    [_files removeAllObjects];
+    [_files addObjectsFromArray:array];
 }
 
 #pragma mark - Check For Updates

@@ -90,6 +90,13 @@
 {    
     NSString *value = [_webView stringByEvaluatingJavaScriptFromString:@"getFormJSON()"];
     
+    //[_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"alert('%@')", value]];
+    //[_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"resetdata('regform')"]];
+    
+    //[_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setFormJSON('%@')", value]];
+    
+    //NSLog(@"%@", value);
+    
     NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
 
     NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:NULL];
@@ -100,7 +107,7 @@
     
     if (isStandard)
     {
-        [_openFile addCollectionsObject:[self collectionWithDictionary:results]];
+        [_openFile addCollectionsObject:[self collectionWithDictionary:value]];
     }
     else
     {
@@ -121,7 +128,7 @@
     }
 }
 
-- (Collection *)collectionWithDictionary:(NSDictionary *)dict
+- (Collection *)collectionWithDictionary:(NSString *)json
 {
     NSManagedObjectContext *context = self.managedObjectContext;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Collection" inManagedObjectContext:context];
@@ -129,13 +136,7 @@
     
     collect.time = [NSDate date];
     collect.name = [NSString stringWithFormat:@"Collection %d", [[_openFile.collections allObjects] count] + 1];
-    
-    NSMutableData *data = [[NSMutableData alloc] init];
-    NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    [archiver encodeObject:dict forKey:@"CollectionData"];
-    [archiver finishEncoding];
-    collect.data = data;
-    
+    collect.data = json;
     collect.fromFile = _openFile;
     
     NSError *error = nil;

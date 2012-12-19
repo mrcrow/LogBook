@@ -28,15 +28,15 @@
 		E838BD371675E1650056E170 /* FolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E838BD361675E1640056E170 /* FolderViewController.xib */; };
 		E83A8E55167860D200C9F9DB /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E83A8E53167860D200C9F9DB /* CollectionViewController.m */; };
 		E83A8E56167860D200C9F9DB /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E83A8E54167860D200C9F9DB /* CollectionViewController.xib */; };
+		E853C2CC1681744700BDC3F3 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = E853C2CB1681744700BDC3F3 /* Folder.m */; };
+		E853C2D01681744800BDC3F3 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = E853C2CF1681744800BDC3F3 /* File.m */; };
+		E853C2D31681744800BDC3F3 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = E853C2D21681744800BDC3F3 /* Collection.m */; };
 		E8AAB216167D9115008C2D18 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAB214167D9115008C2D18 /* PageViewController.m */; };
 		E8AAB217167D9115008C2D18 /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8AAB215167D9115008C2D18 /* PageViewController.xib */; };
 		E8AAB21B167D912B008C2D18 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAB219167D912B008C2D18 /* ContentViewController.m */; };
 		E8AAB21C167D912B008C2D18 /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8AAB21A167D912B008C2D18 /* ContentViewController.xib */; };
 		E8AAB222167EACE8008C2D18 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8AAB221167EACE8008C2D18 /* MessageUI.framework */; };
 		E8D81C97167ECE6E00C53E4F /* UIColor+ExtraColors.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D81C96167ECE6E00C53E4F /* UIColor+ExtraColors.m */; };
-		E8F01F55167881B100E43AE7 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F01F54167881B100E43AE7 /* Folder.m */; };
-		E8F01F59167881B200E43AE7 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F01F58167881B200E43AE7 /* File.m */; };
-		E8F01F5C167881B200E43AE7 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F01F5B167881B200E43AE7 /* Collection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +70,12 @@
 		E83A8E52167860D200C9F9DB /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		E83A8E53167860D200C9F9DB /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		E83A8E54167860D200C9F9DB /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
+		E853C2CA1681744700BDC3F3 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
+		E853C2CB1681744700BDC3F3 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
+		E853C2CE1681744800BDC3F3 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
+		E853C2CF1681744800BDC3F3 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
+		E853C2D11681744800BDC3F3 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
+		E853C2D21681744800BDC3F3 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
 		E8AAB213167D9114008C2D18 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		E8AAB214167D9115008C2D18 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		E8AAB215167D9115008C2D18 /* PageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
@@ -79,12 +85,6 @@
 		E8AAB221167EACE8008C2D18 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E8D81C95167ECE6E00C53E4F /* UIColor+ExtraColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ExtraColors.h"; sourceTree = "<group>"; };
 		E8D81C96167ECE6E00C53E4F /* UIColor+ExtraColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ExtraColors.m"; sourceTree = "<group>"; };
-		E8F01F53167881B100E43AE7 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
-		E8F01F54167881B100E43AE7 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
-		E8F01F57167881B200E43AE7 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
-		E8F01F58167881B200E43AE7 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
-		E8F01F5A167881B200E43AE7 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
-		E8F01F5B167881B200E43AE7 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,13 +165,13 @@
 		E838BD061674EDA70056E170 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
-				E8F01F53167881B100E43AE7 /* Folder.h */,
-				E8F01F54167881B100E43AE7 /* Folder.m */,
-				E8F01F57167881B200E43AE7 /* File.h */,
-				E8F01F58167881B200E43AE7 /* File.m */,
-				E8F01F5A167881B200E43AE7 /* Collection.h */,
-				E8F01F5B167881B200E43AE7 /* Collection.m */,
 				E838BCC11674DD620056E170 /* LogBook.xcdatamodeld */,
+				E853C2CA1681744700BDC3F3 /* Folder.h */,
+				E853C2CB1681744700BDC3F3 /* Folder.m */,
+				E853C2CE1681744800BDC3F3 /* File.h */,
+				E853C2CF1681744800BDC3F3 /* File.m */,
+				E853C2D11681744800BDC3F3 /* Collection.h */,
+				E853C2D21681744800BDC3F3 /* Collection.m */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -298,12 +298,12 @@
 				E838BD051674ED560056E170 /* FolderViewController.m in Sources */,
 				E838BD0D167579F80056E170 /* FolderManageController.m in Sources */,
 				E83A8E55167860D200C9F9DB /* CollectionViewController.m in Sources */,
-				E8F01F55167881B100E43AE7 /* Folder.m in Sources */,
-				E8F01F59167881B200E43AE7 /* File.m in Sources */,
-				E8F01F5C167881B200E43AE7 /* Collection.m in Sources */,
 				E8AAB216167D9115008C2D18 /* PageViewController.m in Sources */,
 				E8AAB21B167D912B008C2D18 /* ContentViewController.m in Sources */,
 				E8D81C97167ECE6E00C53E4F /* UIColor+ExtraColors.m in Sources */,
+				E853C2CC1681744700BDC3F3 /* Folder.m in Sources */,
+				E853C2D01681744800BDC3F3 /* File.m in Sources */,
+				E853C2D31681744800BDC3F3 /* Collection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
