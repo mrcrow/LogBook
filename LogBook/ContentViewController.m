@@ -57,7 +57,7 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setFormJSON('%@')", _collet.data]];
+    [_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setFormJSON('%@')", _collet.json]];
 }
 
 #pragma mark - Manage Content
@@ -131,7 +131,7 @@
 	[picker setCcRecipients:ccRecipients];
 	
 	// Attach an image to the email
-	[picker addAttachmentData:[self dataOfCollection] mimeType:@"text/csv" fileName:_collet.name];
+	[picker addAttachmentData:_collet.attachment mimeType:@"text/csv" fileName:_collet.name];
 	
 	// Fill out the email body text
 	NSString *emailBody = [NSString stringWithFormat: @"%@'s collection data is included in the attachment", _collet.name];
@@ -175,45 +175,6 @@
 			break;
 	}
     [self dismissModalViewControllerAnimated:YES];
-}
-
-#pragma mark - Collection to NSData
-
-- (NSData *)dataOfCollection
-{
-    NSData *data = [_collet.data dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:NULL];
-    
-    NSLog(@"%@", results);
-    
-    NSArray *content = [results objectForKey:@"data"];
-    
-    NSLog(@"%@", content);
-    
-    NSString *string = [NSString string];
-    int i = 0;
-    
-    for (NSDictionary *item in content)
-    {
-        NSString *conponent = nil;
-        i ++;
-        if (i < [content count])
-        {
-            conponent = [NSString stringWithFormat:@"%@%@", [item objectForKey:@"value"], SEPERATOR];
-        }
-        else
-        {
-            conponent = [item objectForKey:@"value"];
-        }
-        
-        string = [string stringByAppendingString:conponent];
-    }
-    
-    NSLog(@"%@", string);
-    
-    //convert nsstring to nsdata
-    return [string dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 @end

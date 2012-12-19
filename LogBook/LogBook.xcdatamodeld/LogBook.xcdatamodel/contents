@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="11E53" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Collection" representedClassName="Collection" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attachment" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="json" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sent" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="fromFile" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="File" inverseName="collections" inverseEntity="File" syncable="YES"/>
     </entity>
@@ -30,7 +32,7 @@
         <userInfo/>
     </entity>
     <elements>
-        <element name="Collection" positionX="-2538" positionY="-1089" width="128" height="105"/>
+        <element name="Collection" positionX="-2538" positionY="-1089" width="128" height="135"/>
         <element name="File" positionX="-2727" positionY="-1071" width="128" height="180"/>
         <element name="Folder" positionX="-2934" positionY="-1089" width="128" height="150"/>
     </elements>

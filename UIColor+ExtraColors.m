@@ -12,7 +12,17 @@
 
 + (UIColor *)previewButtonColor
 {
-    return [UIColor colorWithRed:51/255 green:0.95 blue:51/255 alpha:1.0];
+    return [UIColor colorWithRed:51/255 green:0.90 blue:51/255 alpha:1.0];
+}
+
++ (UIColor *)unsentTextColor
+{
+    return [UIColor colorWithRed:81.0/255.0 green:102.0/255.0 blue:145.0/255.0 alpha:1.0];
+}
+
++ (UIColor *)sentTextColor
+{
+    return [UIColor colorWithRed:50/255 green:205/255 blue:50/255 alpha:1.0];
 }
 
 @end

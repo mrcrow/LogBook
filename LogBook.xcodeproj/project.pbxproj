@@ -28,9 +28,9 @@
 		E838BD371675E1650056E170 /* FolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E838BD361675E1640056E170 /* FolderViewController.xib */; };
 		E83A8E55167860D200C9F9DB /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E83A8E53167860D200C9F9DB /* CollectionViewController.m */; };
 		E83A8E56167860D200C9F9DB /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E83A8E54167860D200C9F9DB /* CollectionViewController.xib */; };
-		E853C2CC1681744700BDC3F3 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = E853C2CB1681744700BDC3F3 /* Folder.m */; };
-		E853C2D01681744800BDC3F3 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = E853C2CF1681744800BDC3F3 /* File.m */; };
-		E853C2D31681744800BDC3F3 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = E853C2D21681744800BDC3F3 /* Collection.m */; };
+		E853C2DF1681AB8B00BDC3F3 /* Collection.m in Sources */ = {isa = PBXBuildFile; fileRef = E853C2DE1681AB8B00BDC3F3 /* Collection.m */; };
+		E853C2E21681AB8B00BDC3F3 /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = E853C2E11681AB8B00BDC3F3 /* File.m */; };
+		E853C2E51681AB8B00BDC3F3 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = E853C2E41681AB8B00BDC3F3 /* Folder.m */; };
 		E8AAB216167D9115008C2D18 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAB214167D9115008C2D18 /* PageViewController.m */; };
 		E8AAB217167D9115008C2D18 /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8AAB215167D9115008C2D18 /* PageViewController.xib */; };
 		E8AAB21B167D912B008C2D18 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AAB219167D912B008C2D18 /* ContentViewController.m */; };
@@ -70,12 +70,12 @@
 		E83A8E52167860D200C9F9DB /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		E83A8E53167860D200C9F9DB /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		E83A8E54167860D200C9F9DB /* CollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
-		E853C2CA1681744700BDC3F3 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
-		E853C2CB1681744700BDC3F3 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
-		E853C2CE1681744800BDC3F3 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
-		E853C2CF1681744800BDC3F3 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
-		E853C2D11681744800BDC3F3 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
-		E853C2D21681744800BDC3F3 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
+		E853C2DD1681AB8B00BDC3F3 /* Collection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collection.h; sourceTree = "<group>"; };
+		E853C2DE1681AB8B00BDC3F3 /* Collection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collection.m; sourceTree = "<group>"; };
+		E853C2E01681AB8B00BDC3F3 /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
+		E853C2E11681AB8B00BDC3F3 /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
+		E853C2E31681AB8B00BDC3F3 /* Folder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Folder.h; sourceTree = "<group>"; };
+		E853C2E41681AB8B00BDC3F3 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
 		E8AAB213167D9114008C2D18 /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		E8AAB214167D9115008C2D18 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		E8AAB215167D9115008C2D18 /* PageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
@@ -166,12 +166,12 @@
 			isa = PBXGroup;
 			children = (
 				E838BCC11674DD620056E170 /* LogBook.xcdatamodeld */,
-				E853C2CA1681744700BDC3F3 /* Folder.h */,
-				E853C2CB1681744700BDC3F3 /* Folder.m */,
-				E853C2CE1681744800BDC3F3 /* File.h */,
-				E853C2CF1681744800BDC3F3 /* File.m */,
-				E853C2D11681744800BDC3F3 /* Collection.h */,
-				E853C2D21681744800BDC3F3 /* Collection.m */,
+				E853C2E31681AB8B00BDC3F3 /* Folder.h */,
+				E853C2E41681AB8B00BDC3F3 /* Folder.m */,
+				E853C2E01681AB8B00BDC3F3 /* File.h */,
+				E853C2E11681AB8B00BDC3F3 /* File.m */,
+				E853C2DD1681AB8B00BDC3F3 /* Collection.h */,
+				E853C2DE1681AB8B00BDC3F3 /* Collection.m */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -301,9 +301,9 @@
 				E8AAB216167D9115008C2D18 /* PageViewController.m in Sources */,
 				E8AAB21B167D912B008C2D18 /* ContentViewController.m in Sources */,
 				E8D81C97167ECE6E00C53E4F /* UIColor+ExtraColors.m in Sources */,
-				E853C2CC1681744700BDC3F3 /* Folder.m in Sources */,
-				E853C2D01681744800BDC3F3 /* File.m in Sources */,
-				E853C2D31681744800BDC3F3 /* Collection.m in Sources */,
+				E853C2DF1681AB8B00BDC3F3 /* Collection.m in Sources */,
+				E853C2E21681AB8B00BDC3F3 /* File.m in Sources */,
+				E853C2E51681AB8B00BDC3F3 /* Folder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,4 +12,8 @@
 
 + (UIColor *)previewButtonColor;
 
++ (UIColor *)unsentTextColor;
+
++ (UIColor *)sentTextColor;
+
 @end

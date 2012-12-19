@@ -13,9 +13,11 @@
 
 @interface Collection : NSManagedObject
 
-@property (nonatomic, retain) NSString * data;
+@property (nonatomic, retain) NSString * json;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * time;
+@property (nonatomic, retain) NSNumber * sent;
+@property (nonatomic, retain) NSData * attachment;
 @property (nonatomic, retain) File *fromFile;
 
 @end

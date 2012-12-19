@@ -278,6 +278,15 @@ static NSString *sendTitleAll = @"Send All";
 {
     Collection *collect = [_collections objectAtIndex:indexPath.row];
     cell.textLabel.text = collect.name;
+ 
+    if ([collect.sent boolValue])
+    {
+        cell.textLabel.textColor = [UIColor sentTextColor];
+    }
+    else
+    {
+        cell.textLabel.textColor = [UIColor unsentTextColor];
+    }
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];

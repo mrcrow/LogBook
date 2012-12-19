@@ -209,7 +209,7 @@
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
-    NSString *message = nil;
+    NSString *message = [NSString string];
 	// Notifies users about errors associated with the interface
 	switch (result)
 	{
@@ -230,44 +230,26 @@
 			break;
 	}
     
+    if (result == MFMailComposeResultSent)
+    {
+        [self checkSentCollections];
+    }
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mail" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
-
 }
+
+- (void)checkSentCollections
+{
+    
+}
+
+#pragma mark - Alert View Delegate Method
 
 - (void)alertViewCancel:(UIAlertView *)alertView
 {
     [self dismissModalViewControllerAnimated:YES];
 }
 
-#pragma mark - Collection to NSData
-
-- (NSData *)dataOfCollection:(Collection *)collect
-{
-    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:collect.data];
-    NSDictionary *dictionary = [unarchiver decodeObjectForKey:@"CollectionData"];
-    [unarchiver finishDecoding];
-    
-    NSArray *content = [dictionary objectForKey:@"data"];
-    
-    NSString *string = nil;
-    
-    int i = 0;
-    for (NSDictionary *item in content)
-    {
-        i ++;
-        if (i < [content count])
-        {
-            string = [string stringByAppendingString:[NSString stringWithFormat:@"%@%@", [item objectForKey:@"Value"], SEPERATOR]];
-        }
-        else
-        {
-            string = [string stringByAppendingString:[item objectForKey:@"Value"]];
-        }
-    }
-    
-    //convert nsstring to nsdata
-    return [string dataUsingEncoding:NSUTF8StringEncoding];
-}
 
 @end

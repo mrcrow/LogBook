@@ -12,9 +12,11 @@
 
 @implementation Collection
 
-@dynamic data;
+@dynamic json;
 @dynamic name;
 @dynamic time;
+@dynamic sent;
+@dynamic attachment;
 @dynamic fromFile;
 
 @end

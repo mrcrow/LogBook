@@ -136,8 +136,9 @@
     
     collect.time = [NSDate date];
     collect.name = [NSString stringWithFormat:@"Collection %d", [[_openFile.collections allObjects] count] + 1];
-    collect.data = json;
+    collect.json = json;
     collect.fromFile = _openFile;
+    collect.attachment = [self attachmentFromJSONValue:collect.json];
     
     NSError *error = nil;
     if (![context save:&error])
@@ -149,6 +150,36 @@
     }
     
     return collect;
+}
+
+- (NSData *)attachmentFromJSONValue:(NSString *)json
+{
+    NSData *data = [json dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:NULL];
+
+    NSArray *content = [results objectForKey:@"data"];
+    
+    NSString *string = [NSString string];
+    int i = 0;
+    
+    for (NSDictionary *item in content)
+    {
+        NSString *conponent = nil;
+        i ++;
+        if (i < [content count])
+        {
+            conponent = [NSString stringWithFormat:@"%@%@", [item objectForKey:@"value"], SEPERATOR];
+        }
+        else
+        {
+            conponent = [item objectForKey:@"value"];
+        }
+        
+        string = [string stringByAppendingString:conponent];
+    }
+    
+    return [string dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 #pragma mark - Show Collections
