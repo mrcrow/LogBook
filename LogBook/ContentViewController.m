@@ -84,7 +84,6 @@
     UIBarButtonItem *sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:@selector(sendCollection)];
     
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:cancelButton, sendButton, nil]];
-    [self.navigationController setToolbarHidden:NO animated:YES];
 }
 
 - (void)dismissModalViewController

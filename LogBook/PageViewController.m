@@ -134,14 +134,9 @@
 - (void)manageButtons
 {
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissModalViewController)];
-    UIBarButtonItem *sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleBordered target:self action:@selector(sendAllCollections)];
-    sendButton.tintColor = [UIColor redColor];
+    UIBarButtonItem *sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:@selector(sendAllCollections)];
     
-    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-    
-    [self.navigationItem setRightBarButtonItem:cancelButton];
-    [self.navigationController setToolbarHidden:NO animated:YES];
-    [self setToolbarItems:[NSArray arrayWithObjects:space, sendButton, space, nil]];
+    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:cancelButton, sendButton, nil]];
 }
 
 

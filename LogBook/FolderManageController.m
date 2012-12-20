@@ -354,14 +354,24 @@
                     NSURL *url = [NSURL URLWithString:urlString];
                     NSData *htmlData = [NSData dataWithContentsOfURL:url];
                     
-                    NSString *modifiedDate = [object objectForKey:@"Date"];
-                    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-                    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-                    NSDate *serverModifiedDate = [formatter dateFromString:modifiedDate];
-                    
-                    file.html = htmlData;
-                    file.modifiedDate = serverModifiedDate;
+                    if (htmlData)
+                    {
+                        NSString *modifiedDate = [object objectForKey:@"Date"];
+                        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+                        NSDate *serverModifiedDate = [formatter dateFromString:modifiedDate];
+                        
+                        file.html = htmlData;
+                        file.modifiedDate = serverModifiedDate;
+                    }
+                    else
+                    {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail to update the file from server" message:@"Please check the status of WiFi connection and make sure you have connect to the internet" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [alert show];
+                        
+                        break;
+                    }
                 }
             }
         }
@@ -420,7 +430,15 @@
             NSArray *result = [_files filteredArrayUsingPredicate:predicate];
             if ([result count] == 0)
             {
-                [_files addObject:[self fileWithDictionary:object]];
+                File *file = [self fileWithDictionary:object];
+                if (file)
+                {
+                    [_files addObject:file];
+                }
+                else
+                {
+                    break;
+                }
             }
         }
         else
@@ -477,41 +495,51 @@
 
 - (File *)fileWithDictionary:(NSDictionary *)dict
 {
-    NSManagedObjectContext *context = self.managedObjectContext;
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"File" inManagedObjectContext:context];
-    File *file = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
     //download file to direction
     NSString *urlString = [NSString stringWithFormat:@"%@%@", ServerRequest, [dict objectForKey:@"Url"]];
     NSLog(@"url :%@", urlString);
     NSURL *url = [NSURL URLWithString:urlString];
     NSData *htmlData = [NSData dataWithContentsOfURL:url];
     
-    //get last modified date
-    NSString *modifiedDate = [dict objectForKey:@"Date"];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-    NSDate *serverModifiedDate = [formatter dateFromString:modifiedDate];
-    
-    file.fatherPath = ServerRequest;
-    file.name = [dict objectForKey:@"Name"];
-    file.path = [NSString stringWithFormat:@"%@/%@.html", file.fatherPath, file.name];
-    file.isExistInServer = [NSNumber numberWithBool:YES];
-    file.isLastVersion = [NSNumber numberWithBool:YES];
-    file.html = htmlData;
-    file.modifiedDate = serverModifiedDate;
-    
-    NSError *error = nil;
-    if (![context save:&error])
+    if (htmlData)
     {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        NSManagedObjectContext *context = self.managedObjectContext;
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"File" inManagedObjectContext:context];
+        File *file = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+        
+        //get last modified date
+        NSString *modifiedDate = [dict objectForKey:@"Date"];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+        NSDate *serverModifiedDate = [formatter dateFromString:modifiedDate];
+        
+        file.fatherPath = ServerRequest;
+        file.name = [dict objectForKey:@"Name"];
+        file.path = [NSString stringWithFormat:@"%@/%@.html", file.fatherPath, file.name];
+        file.isExistInServer = [NSNumber numberWithBool:YES];
+        file.isLastVersion = [NSNumber numberWithBool:YES];
+        file.html = htmlData;
+        file.modifiedDate = serverModifiedDate;
+
+        NSError *error = nil;
+        if (![context save:&error])
+        {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        
+        return file;
     }
-    
-    return file;
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail to download the file from server" message:@"Please check the status of WiFi connection and make sure you have connect to the internet" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        
+        return nil;
+    }
 }
 
 - (Folder *)folderWithDictionary:(NSDictionary *)dict

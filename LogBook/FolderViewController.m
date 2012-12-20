@@ -64,14 +64,11 @@
 
 - (void)manageFolder:(Folder *)folder withJSON:(NSDictionary *)json online:(BOOL)online
 {
-    if (_container != folder)
-    {
-        _container = folder;
-        _JSON = [NSArray arrayWithArray:[json objectForKey:@"Child"]];
-        [self manageContent];
-        _isOnline = online;
-        self.title = _container.name;
-    }
+    _container = folder;
+    _JSON = [NSArray arrayWithArray:[json objectForKey:@"Child"]];
+    [self manageContent];
+    _isOnline = online;
+    self.title = _container.name;
 }
 
 #pragma mark - Content Management
@@ -329,14 +326,25 @@
                     
                     NSData *htmlData = [NSData dataWithContentsOfURL:url];
                     
-                    NSString *modifiedDate = [object objectForKey:@"Date"];
-                    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-                    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-                    NSDate *serverModifiedDate = [formatter dateFromString:modifiedDate];
-                    
-                    file.html = htmlData;
-                    file.modifiedDate = serverModifiedDate;
+                    if (htmlData)
+                    {
+                        
+                        NSString *modifiedDate = [object objectForKey:@"Date"];
+                        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+                        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+                        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+                        NSDate *serverModifiedDate = [formatter dateFromString:modifiedDate];
+                        
+                        file.html = htmlData;
+                        file.modifiedDate = serverModifiedDate;
+                    }
+                    else
+                    {
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail to update the file from server" message:@"Please check the status of WiFi connection and make sure you have connect to the internet" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [alert show];
+                        
+                        break;
+                    }
                 }
             }
         }
@@ -398,8 +406,15 @@
             if ([result count] == 0)
             {
                 File *file = [self fileWithDictionary:object];
-                [_files addObject:file];
-                [_container addSubFilesObject:file];
+                if (file)
+                {
+                    [_files addObject:file];
+                    [_container addSubFilesObject:file];
+                }
+                else
+                {
+                    break;
+                }
             }
         }
         else
@@ -434,8 +449,15 @@
         else
         {
             File *file = [self fileWithDictionary:object];
-            [_files addObject:file];
-            [_container addSubFilesObject:file];
+            if (file)
+            {
+                [_files addObject:file];
+                [_container addSubFilesObject:file];
+            }
+            else
+            {
+                break;
+            }
         }
     }
     
@@ -445,43 +467,53 @@
 - (File *)fileWithDictionary:(NSDictionary *)dict
 {
     NSManagedObjectContext *context = self.managedObjectContext;
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"File" inManagedObjectContext:context];
-    File *file = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
-    //get last modified date
-    NSString *modifiedDate = [dict objectForKey:@"Date"];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-    NSDate *serverModifiedDate = [formatter dateFromString:modifiedDate];
-    
-    file.fromFolder = _container;
-    file.fatherPath = _container.path;
-    file.name = [dict objectForKey:@"Name"];
-    file.path = [NSString stringWithFormat:@"%@/%@.html", file.fatherPath, file.name];
-    //NSLog(@"file path:%@", file.path);
-    
-    file.isExistInServer = [NSNumber numberWithBool:YES];
-    file.isLastVersion = [NSNumber numberWithBool:YES];
     
     //download file to direction
-    NSURL *url = [NSURL URLWithString:file.path];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/%@.html", _container.path, [dict objectForKey:@"Name"]]];
     NSData *htmlData = [NSData dataWithContentsOfURL:url];
-    //NSLog(@"html data :%@", htmlData);
     
-    file.html = htmlData;
-    file.modifiedDate = serverModifiedDate;
-    
-    NSError *error = nil;
-    if (![context save:&error])
+    if (htmlData)
     {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"File" inManagedObjectContext:context];
+        File *file = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+        
+        //get last modified date
+        NSString *modifiedDate = [dict objectForKey:@"Date"];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+        NSDate *serverModifiedDate = [formatter dateFromString:modifiedDate];
+        
+        file.fromFolder = _container;
+        file.fatherPath = _container.path;
+        file.name = [dict objectForKey:@"Name"];
+        file.path = [NSString stringWithFormat:@"%@/%@.html", file.fatherPath, file.name];
+        //NSLog(@"file path:%@", file.path);
+        
+        file.isExistInServer = [NSNumber numberWithBool:YES];
+        file.isLastVersion = [NSNumber numberWithBool:YES];
+        
+        file.html = htmlData;
+        file.modifiedDate = serverModifiedDate;
+        
+        NSError *error = nil;
+        if (![context save:&error])
+        {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        
+        return file;
     }
-    
-    return file;
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Fail to download the file from server" message:@"Please check the status of WiFi connection and make sure you have connect to the internet" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        
+        return nil;
+    }
 }
 
 - (Folder *)folderWithDictionary:(NSDictionary *)dict

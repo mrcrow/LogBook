@@ -90,13 +90,6 @@
 {    
     NSString *value = [_webView stringByEvaluatingJavaScriptFromString:@"getFormJSON()"];
     
-    //[_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"alert('%@')", value]];
-    //[_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"resetdata('regform')"]];
-    
-    //[_webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"setFormJSON('%@')", value]];
-    
-    //NSLog(@"%@", value);
-    
     NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
 
     NSDictionary *results = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:NULL];
@@ -166,18 +159,21 @@
     for (NSDictionary *item in content)
     {
         NSString *conponent = nil;
+        NSString *java = [NSString stringWithFormat:@"escapeDecode('%@')", [item objectForKey:@"value"]];
         i ++;
         if (i < [content count])
         {
-            conponent = [NSString stringWithFormat:@"%@%@", [item objectForKey:@"value"], SEPERATOR];
+            conponent = [[_webView stringByEvaluatingJavaScriptFromString:java] stringByAppendingString:SEPERATOR];
         }
         else
         {
-            conponent = [item objectForKey:@"value"];
+            conponent = [_webView stringByEvaluatingJavaScriptFromString:java];
         }
         
         string = [string stringByAppendingString:conponent];
     }
+    
+    NSLog(@"%@", string);
     
     return [string dataUsingEncoding:NSUTF8StringEncoding];
 }
