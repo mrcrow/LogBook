@@ -619,8 +619,7 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
-        cell.detailTextLabel.numberOfLines = 2;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"last modified on:\n%@", [formatter stringFromDate:file.modifiedDate]];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"file date: %@", [formatter stringFromDate:file.modifiedDate]];
         
         cell.imageView.image = [UIImage imageNamed:@"file"];
         cell.imageView.contentMode = UIViewContentModeScaleAspectFit;

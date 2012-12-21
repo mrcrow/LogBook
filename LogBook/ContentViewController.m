@@ -81,9 +81,10 @@
 - (void)manageButtons
 {
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissModalViewController)];
-    UIBarButtonItem *sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:@selector(sendCollection)];
+    UIBarButtonItem *sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Mail" style:UIBarButtonItemStyleDone target:self action:@selector(sendCollection)];
     
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:cancelButton, sendButton, nil]];
+    self.title = [NSString stringWithFormat: @"Preview collection :%@", _collect.name];
 }
 
 - (void)dismissModalViewController
@@ -112,18 +113,13 @@
 	
 	[picker setSubject:[NSString stringWithFormat:@"Collected Data of %@", _collect.name]];
 	
-	// Set up recipients
-	NSArray *toRecipients = [NSArray arrayWithObject:@"first@example.com"];
-	NSArray *ccRecipients = [NSArray arrayWithObjects:@"second@example.com", nil];
-
-	[picker setToRecipients:toRecipients];
-	[picker setCcRecipients:ccRecipients];
-	
+    [picker setToRecipients:[NSArray arrayWithObject:TestEmail]];
+    
 	// Attach an image to the email
 	[picker addAttachmentData:_collect.attachment mimeType:@"text/csv" fileName:_collect.name];
 	
 	// Fill out the email body text
-	NSString *emailBody = [NSString stringWithFormat: @"%@'s collection data is included in the attachment", _collect.name];
+	NSString *emailBody = [NSString stringWithFormat:@"Email includes the data of %@ from file %@, please check it.", _collect.name, _collect.fromFile.name];
 	[picker setMessageBody:emailBody isHTML:NO];
 	
 	[self presentModalViewController:picker animated:YES];

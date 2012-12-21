@@ -134,9 +134,10 @@
 - (void)manageButtons
 {
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissModalViewController)];
-    UIBarButtonItem *sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:@selector(sendAllCollections)];
+    UIBarButtonItem *sendButton = [[UIBarButtonItem alloc] initWithTitle:@"Mail" style:UIBarButtonItemStyleDone target:self action:@selector(sendAllCollections)];
     
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects:cancelButton, sendButton, nil]];
+    self.title = @"Multi-File Preview";
 }
 
 
@@ -185,7 +186,7 @@
 	[picker setToRecipients:[NSArray arrayWithObject:TestEmail]];
 	
 	// Fill out the email body text
-	NSString *emailBody = [NSString stringWithFormat: @"Email included the data of %@please check it.", collectNames];
+	NSString *emailBody = [NSString stringWithFormat: @"Email includes the data of %@from file %@, please check it.", collectNames, fileName];
 	[picker setMessageBody:emailBody isHTML:YES];
 	
 	[self presentModalViewController:picker animated:YES];

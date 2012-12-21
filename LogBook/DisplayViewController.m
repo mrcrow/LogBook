@@ -271,4 +271,9 @@
     [self dismissCollectionPopoverView];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return YES;
+}
+
 @end

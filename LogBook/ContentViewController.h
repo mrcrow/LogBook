@@ -10,6 +10,7 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import "Collection.h"
+#import "File.h"
 
 @interface ContentViewController : UIViewController <UIWebViewDelegate, MFMailComposeViewControllerDelegate>
 
