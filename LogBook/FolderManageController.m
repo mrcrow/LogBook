@@ -591,6 +591,11 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 58.0;
+}
+
 - (UITableViewCell *)cellForFolderAtIndex:(NSInteger)index
 {
     static NSString *cellIdentifier = @"FolderCell";
@@ -607,13 +612,10 @@
         Folder *folder = [_folders objectAtIndex:index];
         
         cell.textLabel.text = folder.name;
-        cell.detailTextLabel.text = folder.path;
+        //cell.detailTextLabel.text = folder.path;
+        cell.imageView.image = [UIImage imageNamed:@"folder"];
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    else
-    {
-        cell.textLabel.text = @"Empty";
-        cell.accessoryType = UITableViewCellAccessoryNone;
     }
     
     return cell;
@@ -636,11 +638,15 @@
         File *file = [_files objectAtIndex:index];
         
         cell.textLabel.text = file.name;
-        cell.detailTextLabel.text = file.path;
-    }
-    else
-    {
-        cell.textLabel.text = @"Empty";
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+        cell.detailTextLabel.numberOfLines = 2;
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"last modified on:\n%@", [formatter stringFromDate:file.modifiedDate]];
+        
+        cell.imageView.image = [UIImage imageNamed:@"file"];
+        cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     
     return cell;
