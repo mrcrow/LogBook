@@ -2,7 +2,7 @@
 //  Collection.h
 //  LogBook
 //
-//  Created by Wu Wenzhi on 12-12-19.
+//  Created by Wu Wenzhi on 12-12-20.
 //  Copyright (c) 2012年 Wu Wenzhi. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSNumber * sent;
+@property (nonatomic, retain) NSNumber * number;
 @property (nonatomic, retain) NSData * attachment;
 @property (nonatomic, retain) File *fromFile;
 

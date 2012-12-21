@@ -2,7 +2,7 @@
 //  File.h
 //  LogBook
 //
-//  Created by Wu Wenzhi on 12-12-19.
+//  Created by Wu Wenzhi on 12-12-20.
 //  Copyright (c) 2012年 Wu Wenzhi. All rights reserved.
 //
 
@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSDate * modifiedDate;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * path;
+@property (nonatomic, retain) NSNumber * collectionNo;
 @property (nonatomic, retain) NSSet *collections;
 @property (nonatomic, retain) Folder *fromFolder;
 @end

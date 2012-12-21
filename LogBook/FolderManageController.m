@@ -521,7 +521,8 @@
         file.isLastVersion = [NSNumber numberWithBool:YES];
         file.html = htmlData;
         file.modifiedDate = serverModifiedDate;
-
+        file.collectionNo = [NSNumber numberWithInt:0];
+        
         NSError *error = nil;
         if (![context save:&error])
         {

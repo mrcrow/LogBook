@@ -89,7 +89,7 @@ static NSString *sendTitleAll = @"Send All";
 
 - (void)sortCollections
 {
-    NSSortDescriptor *sortOrder = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortOrder = [NSSortDescriptor sortDescriptorWithKey:@"number" ascending:YES];
     NSArray *array = [_collections sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortOrder]];
     [_collections removeAllObjects];
     [_collections addObjectsFromArray:array];

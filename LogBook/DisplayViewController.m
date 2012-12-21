@@ -132,6 +132,9 @@
     collect.json = json;
     collect.fromFile = _openFile;
     collect.attachment = [self attachmentFromJSONValue:collect.json];
+    collect.number = [NSNumber numberWithInt:[_openFile.collectionNo intValue] + 1];
+    
+    _openFile.collectionNo = collect.number;
     
     NSError *error = nil;
     if (![context save:&error])
